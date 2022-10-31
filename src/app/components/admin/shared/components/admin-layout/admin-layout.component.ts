@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
-@Component({
-  selector: 'app-office-layout',
-  templateUrl: './office-layout.component.html',
-  styleUrls: ['./office-layout.component.scss']
-})
-export class OfficeLayoutComponent implements OnInit {
 
+@Component({
+  selector: 'app-admin-layout',
+  templateUrl: './admin-layout.component.html',
+  styleUrls: ['./admin-layout.component.scss']
+})
+export class AdminLayoutComponent implements OnInit {
   constructor(private router: Router,
     public auth: AuthService) { }
 
@@ -18,6 +18,6 @@ export class OfficeLayoutComponent implements OnInit {
   logout(event: Event) {
     event.preventDefault();
     this.auth.logout();
-    this.router.navigate(['/office', 'login']);
+    this.router.navigate(['/admin', 'login']);
   }
 }

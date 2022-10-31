@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../../shared/interfaces';
+import { Admin } from '../../shared/interfaces';
 import { AuthService } from '../shared/services/auth.service';
 
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class AdminLoginComponent implements OnInit {
 
   form: FormGroup;
   submitted: boolean = false;
@@ -33,19 +34,19 @@ export class LoginComponent implements OnInit {
 
     this.submitted = true
     
-    const user: User ={
+    const admin: Admin ={
       email: this.form.value.email,
       password: this.form.value.password,
     }
 
     // Сделано пока нет подключения к БД (POST сервер)
-    this.router.navigate(['/office', 'dashboard'])
+    this.router.navigate(['/admin', 'admin-page'])
 
 
 
-    this.auth.login(user).subscribe(() => {
+    this.auth.login(admin).subscribe(() => {
       this.form.reset()
-      this.router.navigate(['/office', 'dashboard'])
+      this.router.navigate(['/admin', 'admin-page'])
       this.submitted = false
     }, () => {
       this.submitted = false
