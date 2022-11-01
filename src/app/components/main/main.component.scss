@@ -1,12 +1,84 @@
 section {
   margin-bottom: 30px;
-  height:50vh;
+  .company {
+    margin-top: 43px;
+    
+    display: flex;
+    align-items: center;
+    .rectangle-big{
+        width: 400px;
+        background: rgba(60, 77, 111, 0.5);
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    .rectangle {
+        width: 136px;
+        background: rgba(60, 77, 111, 0.5);
+        margin-right: 50px;
+
+      }
+
+     .company-wrap{
+      display: flex;
+    }
+  .company-info{ 
+    background: rgba(60, 77, 111, 0.5);
+    padding: 35px;
+
+      h1 {
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 72px;
+        margin-bottom: 15px;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 36px;
+        margin-bottom: 97px;
+      }
+      h3{
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 36px;
+        color: #88D7FF;
+        margin-bottom: 24px; 
+      }
+      p {
+        margin-bottom: 60px;
+      }
+      p.plus{
+        margin-bottom: 0px;
+      }
+    }
+  }
+  .company-photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .logo {
+      max-width: 500px;
+    }
+    .trapezoid {
+      background: rgba(60, 77, 111, 0.5);
+      padding: 35px;
+    }
+    h3 {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 36px;
+      color: #88D7FF;
+      margin-bottom: 24px;
+    }
+  }
+ 
+
 }
 
-.company {
-  display: flex;
-  align-items: center;
-}
+
+
+
+
 
 .cards {
   display: flex;
@@ -17,3 +89,29 @@ section {
   display: flex;
   align-items: center;
 }
+
+@media(min-width: 320px) and (max-width: 766px) { 
+  .company {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .rectangle {
+    display: none;
+  }
+  .rectangle-big {
+    display: none;
+  }
+  .logo {
+    display: none;
+  }
+}
+
+
+@media(min-width: 767px) and (max-width: 1160px) { 
+  .rectangle-big {
+    display: none;
+  }
+
+}
+

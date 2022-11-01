@@ -10,21 +10,14 @@ body {
   font-family: 'PT Sans', 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
-  color: #333;
+  background: linear-gradient(188deg, #2A3958 55%, #9b1803) fixed;
+  color: white;
 
 }
 
 a {
   cursor: pointer;
   text-decoration: none;
-
-  &:visited {
-    color: black;
-  }
-  &:hover {
-    color: #666;
-  }
 }
 
 ul {
@@ -36,6 +29,7 @@ img {
 }
 
 .container {
-  margin: 0 auto;
-  max-width: 1100px;
+  margin: 0 9%;
+  max-width: 1400px;
 }
+
