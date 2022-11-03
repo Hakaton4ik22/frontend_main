@@ -1,35 +1,112 @@
 <section class="office">
-  <div class="person">
-    <img src="#" alt="photo" />
-    <div class="person-info">
-      <h6>Иван Иванов</h6>
-      <p>pochta@gmail.com</p>
-      <ul>
-        <li><img src="#" alt="photo" />Личный кабинет</li>
-        <li><img src="#" alt="photo" />Сохранённые</li>
-        <li><img src="#" alt="photo" />Недавние</li>
-        <li><img src="#" alt="photo" />Настройки</li>
-      </ul>
+  <div class="office-wrapper">
+    <div class="person">
+      <div class="">
+        <div class="person-photo">
+          <img src="assets/images/lk.svg" alt="logo" class="logo" />
+          <div class="name">Иван Иванов</div>
+          <p>pochta@gmail.com</p>
+        </div>
+        <ul>
+          <li class="person-info plk">
+            <img src="assets/images/lk.svg" alt="photo" class="icon" />Личный
+            кабинет
+          </li>
+          <li class="person-info">
+            <img
+              src="assets/images/save.svg"
+              alt="photo"
+              class="icon"
+            />Сохранённые
+          </li>
+          <li class="person-info">
+            <img
+              src="assets/images/recent.svg"
+              alt="photo"
+              class="icon"
+            />Недавние
+          </li>
+          <li class="person-info">
+            <img
+              src="assets/images/settings.svg"
+              alt="photo"
+              class="icon"
+            />Настройки
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="request">
-    <h3>Новый запрос</h3>
-    <form>
-      <label for="email">Промышленность </label>
-      <input id="email" type="text" />
-      <label for="email">Регион </label>
-      <input id="email" type="text" />
-      <label for="email">Отчетный период </label>
-      <input id="email" type="text" />
-      <label for="email">Логистический потенциал </label>
-      <input id="email" type="text" />
-      <label for="email">Уровень промышленности </label>
-      <input id="email" type="text" />
-      <label for="email">Кол-во предприятий в регионе </label>
-      <input id="email" type="text" />
-      <label for="email">Кол-во предприятий др регионах </label>
-      <input id="email" type="text" />
-      <button type="submit" class="btn">Сформировать отчет</button>
-    </form>
+    <div class="request">
+      <form [formGroup]="analyticForm" (ngSubmit)="submit()">
+        <h3>Новый запрос</h3>
+        <div class="request-wrap">
+          <label for="okved">ОКВЭД </label>
+          <input id="okved" type="text" formControlName="okved" />
+        </div>
+        <div
+          class="validation"
+          *ngIf="
+            analyticForm.get('okved').touched &&
+            analyticForm.get('okved').invalid
+          "
+        >
+          <small *ngIf="analyticForm.get('okved').errors?.['required']"
+            >Введите оквэд</small
+          >
+        </div>
+        <div class="request-wrap">
+          <label for="tnved">ТН ВЭД</label>
+          <input id="tnved" type="text" formControlName="tnved" />
+        </div>
+        <div
+          class="validation"
+          *ngIf="
+            analyticForm.get('tnved').touched &&
+            analyticForm.get('tnved').invalid
+          "
+        >
+          <small *ngIf="analyticForm.get('tnved').errors?.['required']"
+            >Введите ТН ВЭД</small
+          >
+        </div>
+        <div class="request-wrap">
+          <label for="period">Отчётный период </label>
+          <input id="period" type="text" formControlName="period" />
+        </div>
+        <div
+          class="validation"
+          *ngIf="
+            analyticForm.get('period').touched &&
+            analyticForm.get('period').invalid
+          "
+        >
+          <small *ngIf="analyticForm.get('period').errors?.['required']"
+            >Введите период</small
+          >
+        </div>
+        <div class="request-wrap">
+          <label for="region">Регионы </label>
+          <input id="region" type="text" formControlName="region" />
+        </div>
+        <div
+          class="validation"
+          *ngIf="
+            analyticForm.get('region').touched &&
+            analyticForm.get('region').invalid
+          "
+        >
+          <small *ngIf="analyticForm.get('region').errors?.['required']"
+            >Введите регион</small
+          >
+        </div>
+        <button
+          type="submit"
+          class="btn"
+          [disabled]="analyticForm.invalid || submitted"
+        >
+          Сформировать отчет
+        </button>
+      </form>
+    </div>
   </div>
 </section>

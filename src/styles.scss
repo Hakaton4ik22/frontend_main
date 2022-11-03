@@ -1,17 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html, body{
+  height: 100%;
+}
+
 body {
-  font-family: 'PT Sans', 'Roboto', sans-serif;
+  font-family: 'Montserrat', 'PT Sans', 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background: linear-gradient(188deg, #2A3958 55%, #9b1803) fixed;
   color: white;
+  height: 100%;
 
 }
 
@@ -29,7 +36,9 @@ img {
 }
 
 .container {
-  margin: 0 9%;
+  margin: 0 auto;
   max-width: 1400px;
+  min-height: 100%;
+
 }
 

@@ -1,5 +1,5 @@
 footer {
-  background: black;
+  background: #111;
   color: white;
   a {
     color: white;
@@ -14,7 +14,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 9%;
+  margin: 0 auto;
   max-width: 1400px;
 
   ul {
@@ -45,5 +45,8 @@ footer {
 
   .logo {
     width: 65px;
+  }
+  .info {
+    width: 50px;
   }
 }
