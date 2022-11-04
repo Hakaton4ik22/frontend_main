@@ -14,3 +14,15 @@ export interface Admin {
   password: string
   returnSecureToken?: boolean
 }
+
+export interface Table {
+  napr: string
+  nastranaprt: string
+  tnved_description: string
+  stoim: number
+  netto: number
+  kol: number
+  region_description: string
+  month: number
+  year: number
+}

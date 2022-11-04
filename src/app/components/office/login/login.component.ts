@@ -38,11 +38,8 @@ export class LoginComponent implements OnInit {
       password: this.form.value.password,
     }
 
-    // Сделано пока нет подключения к БД (POST сервер)
-    this.router.navigate(['/office', 'dashboard'])
 
-
-
+      this.router.navigate(['/office', 'dashboard'])
     this.auth.login(user).subscribe(() => {
       this.form.reset()
       this.router.navigate(['/office', 'dashboard'])

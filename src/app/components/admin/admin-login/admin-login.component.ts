@@ -39,10 +39,6 @@ export class AdminLoginComponent implements OnInit {
       password: this.form.value.password,
     }
 
-    // Сделано пока нет подключения к БД (POST сервер)
-    this.router.navigate(['/admin', 'admin-page'])
-
-
 
     this.auth.login(admin).subscribe(() => {
       this.form.reset()

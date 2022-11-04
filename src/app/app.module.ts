@@ -8,7 +8,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { SharedModule } from './components/shared/shared.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table'
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRippleModule } from '@angular/material/core';
+import { AnalyticsComponent } from './components/office/analytics/analytics.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,14 +22,25 @@ import { SharedModule } from './components/shared/shared.module';
     HeaderComponent,
     MainComponent,
     FooterComponent,
+    AnalyticsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
-  ],
+    SharedModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatRippleModule,
+  ],  
+  exports: [RouterModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatRippleModule,],
   providers: [],
   bootstrap: [AppComponent]
 })

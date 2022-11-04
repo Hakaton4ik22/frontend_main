@@ -1,3 +1,75 @@
-<p>
-  analytics works!
-</p>
+<div class="table">
+  <mat-table [dataSource]="dataSource">
+    <!-- User name Definition -->
+    <ng-container matColumnDef="napr">
+      <mat-header-cell *matHeaderCellDef> napr </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.napr }} </mat-cell>
+    </ng-container>
+
+    <!-- Age Definition -->
+    <ng-container matColumnDef="nastranaprt">
+      <mat-header-cell *matHeaderCellDef> nastranaprt </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.nastranaprt }} </mat-cell>
+    </ng-container>
+
+    <!-- Title Definition -->
+    <ng-container matColumnDef="tnved_description">
+      <mat-header-cell *matHeaderCellDef> tnved_description </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.tnved_description }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="stoim">
+      <mat-header-cell *matHeaderCellDef> stoim </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.stoim }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="netto">
+      <mat-header-cell *matHeaderCellDef> netto </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.netto }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="kol">
+      <mat-header-cell *matHeaderCellDef> kol </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.kol }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="region_description">
+      <mat-header-cell *matHeaderCellDef> region_description </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.region_description }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="month">
+      <mat-header-cell *matHeaderCellDef> month </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.month }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="year">
+      <mat-header-cell *matHeaderCellDef> year </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.year }} </mat-cell>
+    </ng-container>
+    <!-- Header and Row Declarations -->
+    <mat-header-row
+      *matHeaderRowDef="[
+        'napr',
+        'nastranaprt',
+        'tnved_description',
+        'stoim',
+        'netto',
+        'kol',
+        'region_description',
+        'month',
+        'year'
+      ]"
+    ></mat-header-row>
+    <mat-row
+      *matRowDef="
+        let row;
+        columns: [
+          'napr',
+          'nastranaprt',
+          'tnved_description',
+          'stoim',
+          'netto',
+          'kol',
+          'region_description',
+          'month',
+          'year'
+        ]
+      "
+    ></mat-row>
+  </mat-table>
+</div>

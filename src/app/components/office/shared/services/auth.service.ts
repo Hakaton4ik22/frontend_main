@@ -22,7 +22,7 @@ export class AuthService {
 
   login(user: User): Observable<any> {
     user.returnSecureToken = true
-    return this.http.post('', user)
+    return this.http.post('192.168.0.1:8000/user/', user)
     .pipe
     (tap(this.setToken),
     catchError(this.handleError.bind(this)));
