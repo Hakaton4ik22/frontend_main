@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
@@ -14,6 +14,8 @@ import { OfficeLayoutComponent } from "./shared/components/office-layout/office-
 import { AuthService } from "./shared/services/auth.service";
 import { MatButtonModule } from "@angular/material/button";
 import { MatRippleModule } from "@angular/material/core";
+import { InterceptorService } from "./shared/services/interceptor.service";
+import { AuthGuardService } from "./shared/services/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { MatRippleModule } from "@angular/material/core";
         path: '', component: OfficeLayoutComponent, children: [
           {path: '', redirectTo: '/office/login', pathMatch: "full"},
           {path: 'login', component: LoginComponent},
-          {path: 'dashboard', component: DashboardComponent},
+          {path: 'dashboard', component: DashboardComponent,
+    canActivate:[AuthGuardService] },
           {path: 'analytics', component: AnalyticsComponent},
         ]
       }
@@ -47,7 +50,10 @@ import { MatRippleModule } from "@angular/material/core";
     MatFormFieldModule,
     MatTableModule,
     MatRippleModule,],
-  providers: [AuthService],
+  providers: [AuthService, 
+    {provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true}],
   
 })
 

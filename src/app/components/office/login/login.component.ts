@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../shared/interfaces';
+import { ApiService } from '../shared/services/api.service';
 import { AuthService } from '../shared/services/auth.service';
 
 @Component({
@@ -10,42 +11,34 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  form: FormGroup;
-  submitted: boolean = false;
-
+  form: FormGroup
   constructor(
-    public auth: AuthService,
-    private router: Router
+    private _api : ApiService,
+    private _auth: AuthService,
+    private router: Router,
+    public fb: FormBuilder,
   ) { }
 
-  ngOnInit() {
-    this.form = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
-    })
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      email: ['', Validators.required],
+      password:['', Validators.required]
+    });
+   
   }
-  submit() {
-    
-    if (this.form.invalid){
-      return
-    }
 
-    this.submitted = true
-    
-    const user: User ={
-      email: this.form.value.email,
-      password: this.form.value.password,
-    }
-
-
-      this.router.navigate(['/office', 'dashboard'])
-    this.auth.login(user).subscribe(() => {
-      this.form.reset()
-      this.router.navigate(['/office', 'dashboard'])
-      this.submitted = false
-    }, () => {
-      this.submitted = false
-    })
+  login(){
+    let b = {user_form: this.form.value}
+    console.log(b)
+    this._api.postTypeRequest('login', b).subscribe((res: any) => {
+      console.log(res)
+      if(res.access_token){
+        this._auth.setDataInLocalStorage('token', res.access_token)
+        this.router.navigate(['/office', 'dashboard'])
+      }
+    }, err => {
+      console.log(err)
+    });
   }
+
 }
