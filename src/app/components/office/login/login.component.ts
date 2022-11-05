@@ -29,10 +29,8 @@ export class LoginComponent implements OnInit {
 
   login(){
     let b = {user_form: this.form.value}
-    console.log(b)
     this._api.postTypeRequest('login', b).subscribe((res: any) => {
-      console.log(res)
-      if(res.access_token){
+      if(JSON.stringify(res) === JSON.stringify({auth_token: 'OK'})){
         this._auth.setDataInLocalStorage('token', res.access_token)
         this.router.navigate(['/office', 'dashboard'])
       }
