@@ -70,10 +70,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "serviceCustoms:build:production"
+              "browserTarget": "serviceCustoms:build:production",
+            "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
-              "browserTarget": "serviceCustoms:build:development"
+              "browserTarget": "serviceCustoms:build:development",
+            "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +83,8 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "serviceCustoms:build"
+            "browserTarget": "serviceCustoms:build",
+            "proxyConfig": "src/proxy.conf.json"
           }
         },
         "test": {

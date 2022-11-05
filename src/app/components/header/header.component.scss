@@ -1,13 +1,13 @@
 header {
-  background: #111;
+  background: #333333;
   .menu {
     display: flex;
     align-items: center;
   }
   a {
-    color: white;
+    color: #e1e3e6;;
     &:visited {
-      color: white;
+      color: #e1e3e6;
     }
     &:hover {
       color: #666;
@@ -29,7 +29,7 @@ header {
       margin-right: 20px;
           background: #FFFFFF;
     border-radius: 6px;
-    color: black;
+    color: #333333;
     padding: 11px 40px;
     font-weight: bold;
     font-size: 15px;
