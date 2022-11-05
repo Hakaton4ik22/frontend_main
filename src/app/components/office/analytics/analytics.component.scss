@@ -1,7 +1,16 @@
 .table {
-  width: 80vw;
+  width: 100%;
   margin: 60px auto;
+  .filter{ 
+    input{
+      width: 100%;
+      height: 25px;
+    }
+  }
 }
+
+
+
 .office {
   display: flex;
   .office-wrapper {

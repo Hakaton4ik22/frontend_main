@@ -112,6 +112,15 @@
 </section>
 
 <div class="table">
+  <form mat-form-field appearance="standard" class="filter">
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Фильтр по словам"
+      #input
+    />
+  </form>
+
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="napr">
       <th mat-header-cell *matHeaderCellDef>Наименование (товара)</th>
