@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     this._api.postTypeRequest('login', b).subscribe((res: any) => {
       if(JSON.stringify(res) === JSON.stringify({auth_token: 'OK'})){
         this._auth.setDataInLocalStorage('token', res.access_token)
-        this.router.navigate(['/office', 'dashboard'])
+        this.router.navigate(['/office', 'analytics'])
       }
     }, err => {
       console.log(err)

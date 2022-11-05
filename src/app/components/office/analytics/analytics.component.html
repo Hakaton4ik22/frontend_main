@@ -1,75 +1,166 @@
+<section class="office">
+  <div class="office-wrapper">
+    <div class="person">
+      <div class="">
+        <div class="person-photo">
+          <img src="assets/images/lk.svg" alt="logo" class="logo" />
+          <div class="name">Иван Иванов</div>
+          <p>pochta@gmail.com</p>
+        </div>
+        <ul>
+          <li class="person-info plk">
+            <img src="assets/images/lk.svg" alt="photo" class="icon" />Личный
+            кабинет
+          </li>
+          <li class="person-info">
+            <img
+              src="assets/images/save.svg"
+              alt="photo"
+              class="icon"
+            />Сохранённые
+          </li>
+          <li class="person-info">
+            <img
+              src="assets/images/recent.svg"
+              alt="photo"
+              class="icon"
+            />Недавние
+          </li>
+          <li class="person-info">
+            <img
+              src="assets/images/settings.svg"
+              alt="photo"
+              class="icon"
+            />Настройки
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="request">
+      <form [formGroup]="analyticForm" (ngSubmit)="submit()">
+        <h3>Новый запрос</h3>
+        <div class="request-wrap">
+          <label for="okved">ОКВЭД </label>
+          <input id="okved" type="text" formControlName="okved" />
+        </div>
+        <div
+          class="validation"
+          *ngIf="
+            analyticForm.get('okved').touched &&
+            analyticForm.get('okved').invalid
+          "
+        >
+          <small *ngIf="analyticForm.get('okved').errors?.['required']"
+            >Введите оквэд</small
+          >
+        </div>
+        <div class="request-wrap">
+          <label for="tnved">ТН ВЭД</label>
+          <input id="tnved" type="text" formControlName="tnved" />
+        </div>
+        <div
+          class="validation"
+          *ngIf="
+            analyticForm.get('tnved').touched &&
+            analyticForm.get('tnved').invalid
+          "
+        >
+          <small *ngIf="analyticForm.get('tnved').errors?.['required']"
+            >Введите ТН ВЭД</small
+          >
+        </div>
+        <div class="request-wrap">
+          <label for="period">Отчётный период </label>
+          <input id="period" type="text" formControlName="period" />
+        </div>
+        <div
+          class="validation"
+          *ngIf="
+            analyticForm.get('period').touched &&
+            analyticForm.get('period').invalid
+          "
+        >
+          <small *ngIf="analyticForm.get('period').errors?.['required']"
+            >Введите период</small
+          >
+        </div>
+        <div class="request-wrap">
+          <label for="region">Регионы </label>
+          <input id="region" type="text" formControlName="region" />
+        </div>
+        <div
+          class="validation"
+          *ngIf="
+            analyticForm.get('region').touched &&
+            analyticForm.get('region').invalid
+          "
+        >
+          <small *ngIf="analyticForm.get('region').errors?.['required']"
+            >Введите регион</small
+          >
+        </div>
+        <button
+          type="submit"
+          class="btn"
+          [disabled]="analyticForm.invalid || submitted"
+        >
+          Сформировать отчет
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
 <div class="table">
-  <mat-table [dataSource]="dataSource">
-    <!-- User name Definition -->
+  <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="napr">
-      <mat-header-cell *matHeaderCellDef> napr </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.napr }} </mat-cell>
+      <th mat-header-cell *matHeaderCellDef>Наименование (товара)</th>
+      <td mat-cell *matCellDef="let element">{{ element.napr }}</td>
     </ng-container>
-
-    <!-- Age Definition -->
-    <ng-container matColumnDef="nastranaprt">
-      <mat-header-cell *matHeaderCellDef> nastranaprt </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.nastranaprt }} </mat-cell>
+    <ng-container matColumnDef="nastranapr">
+      <th mat-header-cell *matHeaderCellDef>Страна производитель</th>
+      <td mat-cell *matCellDef="let element">{{ element.nastranapr }}</td>
     </ng-container>
-
-    <!-- Title Definition -->
     <ng-container matColumnDef="tnved_description">
-      <mat-header-cell *matHeaderCellDef> tnved_description </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.tnved_description }} </mat-cell>
+      <th mat-header-cell *matHeaderCellDef>ТНВЭД</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.tnved_description }}
+      </td>
     </ng-container>
     <ng-container matColumnDef="stoim">
-      <mat-header-cell *matHeaderCellDef> stoim </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.stoim }} </mat-cell>
+      <th mat-header-cell *matHeaderCellDef>Стоимость</th>
+      <td mat-cell *matCellDef="let element">{{ element.stoim }}</td>
     </ng-container>
     <ng-container matColumnDef="netto">
-      <mat-header-cell *matHeaderCellDef> netto </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.netto }} </mat-cell>
+      <th mat-header-cell *matHeaderCellDef>Нетто</th>
+      <td mat-cell *matCellDef="let element">{{ element.netto }}</td>
     </ng-container>
     <ng-container matColumnDef="kol">
-      <mat-header-cell *matHeaderCellDef> kol </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.kol }} </mat-cell>
+      <th mat-header-cell *matHeaderCellDef>Кол</th>
+      <td mat-cell *matCellDef="let element">{{ element.kol }}</td>
     </ng-container>
     <ng-container matColumnDef="region_description">
-      <mat-header-cell *matHeaderCellDef> region_description </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.region_description }} </mat-cell>
+      <th mat-header-cell *matHeaderCellDef>Регион</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.region_description }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="region_s_description">
+      <th mat-header-cell *matHeaderCellDef>Регион(S)</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.region_s_description }}
+      </td>
     </ng-container>
     <ng-container matColumnDef="month">
-      <mat-header-cell *matHeaderCellDef> month </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.month }} </mat-cell>
+      <th mat-header-cell *matHeaderCellDef>Месяц</th>
+      <td mat-cell *matCellDef="let element">{{ element.month }}</td>
     </ng-container>
     <ng-container matColumnDef="year">
-      <mat-header-cell *matHeaderCellDef> year </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{ row.year }} </mat-cell>
+      <th mat-header-cell *matHeaderCellDef>Год</th>
+      <td mat-cell *matCellDef="let element">{{ element.year }}</td>
     </ng-container>
     <!-- Header and Row Declarations -->
-    <mat-header-row
-      *matHeaderRowDef="[
-        'napr',
-        'nastranaprt',
-        'tnved_description',
-        'stoim',
-        'netto',
-        'kol',
-        'region_description',
-        'month',
-        'year'
-      ]"
-    ></mat-header-row>
-    <mat-row
-      *matRowDef="
-        let row;
-        columns: [
-          'napr',
-          'nastranaprt',
-          'tnved_description',
-          'stoim',
-          'netto',
-          'kol',
-          'region_description',
-          'month',
-          'year'
-        ]
-      "
-    ></mat-row>
-  </mat-table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 </div>

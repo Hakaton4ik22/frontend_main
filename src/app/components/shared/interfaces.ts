@@ -17,12 +17,14 @@ export interface Admin {
 
 export interface Table {
   napr: string
-  nastranaprt: string
+  nastranapr: string
   tnved_description: string
-  stoim: number
-  netto: number
-  kol: number
+  stoim: string
+  netto: string
+  kol: string
   region_description: string
-  month: number
-  year: number
+  region_s_description: string
+  month: string
+  year: string
 }
+
