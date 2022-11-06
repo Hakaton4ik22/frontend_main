@@ -19,13 +19,7 @@ export class TableService {
       })
     }
   }
-  // getTable(): Observable<any> {
-  //   console.log( this.httpclient
-  //   .get('http://188.72.108.212:8000/data', {headers: this.httpOptions.header}))
-  //   return this.httpclient
-  //   .get<Table[]>('http://188.72.108.212:8000/data')
-  //   .pipe(map((response: any) => response.data as Table[]));
-  // }
+
   getTable(): Observable<any> {
 
     return this.httpclient.get('http://188.72.108.212:8000/data')

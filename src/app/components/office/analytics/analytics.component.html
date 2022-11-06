@@ -38,11 +38,10 @@
     </div>
     <div class="request">
       <h3>Новый запрос</h3>
-      <form (ngSubmit)="submit()">
+      <form [formGroup]="formReq" (ngSubmit)="submit()">
         <mat-form-field appearance="fill">
           <mat-label>Страна</mat-label>
-          <mat-select>
-            <mat-option>Ничего</mat-option>
+          <mat-select formControlName="countryForm">
             <mat-option
               *ngFor="let countryF of countryList"
               [value]="countryF"
@@ -53,7 +52,7 @@
 
         <mat-form-field appearance="fill">
           <mat-label>Направление</mat-label>
-          <mat-select multiple>
+          <mat-select formControlName="naprsForm">
             <mat-option *ngFor="let naprF of naprList" [value]="naprF">{{
               naprF
             }}</mat-option>
@@ -62,7 +61,7 @@
 
         <mat-form-field appearance="fill">
           <mat-label>Год</mat-label>
-          <mat-select multiple>
+          <mat-select formControlName="yearsForm">
             <mat-option *ngFor="let yearF of yearList" [value]="yearF">{{
               yearF
             }}</mat-option>
@@ -70,63 +69,16 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>ТН ВЭД</mat-label>
-          <mat-select>
-            <mat-option>None</mat-option>
+          <mat-select formControlName="tnvedsForm">
             <mat-option *ngFor="let tnvedF of tnvedList" [value]="tnvedF">{{
               tnvedF
             }}</mat-option>
           </mat-select>
         </mat-form-field>
-        <button
-          type="submit"
-          class="btn"
-          [disabled]="analyticForm.invalid || submitted"
-        >
+        <button type="submit" class="btn" [disabled]="formReq.invalid">
           Сформировать отчет
         </button>
       </form>
-      <!-- <form [formGroup]="analyticForm" (ngSubmit)="submit()">
-        <h3>Новый запрос</h3>
-        <div class="request-wrap">
-          <label for="nastranapr">Страна </label>
-          <input
-            id="nastranapr"
-            type="text"
-            formControlName="nastranapr"
-            placeholder="В формате 'RU'"
-          />
-        </div>
-        <div class="request-wrap">
-          <label for="tnved_description">ТН ВЭД</label>
-          <input
-            id="tnved_description"
-            type="text"
-            formControlName="tnved_description"
-          />
-        </div>
-        <div class="request-wrap">
-          
-    
-          <label for="napr">Направление </label>
-          <select id="napr" formControlName="napr">
-            <option value="1">Импорт</option>
-            <option value="2">Экспорт</option>
-          </select>
-        </div>
-        <div class="request-wrap">
-          <label for="year">Год </label>
-          <input
-            type="date"
-            class="form-control"
-            id="year"
-            name="date"
-            placeholder="Дата"
-            formControlName="year"
-            required
-          />
-        </div>
-
-      </form> -->
     </div>
   </div>
 </section>

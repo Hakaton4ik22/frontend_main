@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatTableModule } from '@angular/material/table'
+import { MatIconModule } from '@angular/material/icon'
 
 import { SharedModule } from "../shared/shared.module";
 import { AnalyticsComponent } from "./analytics/analytics.component";
@@ -19,6 +20,7 @@ import { AuthGuardService } from "./shared/services/auth-guard.service";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { MatSelectModule } from "@angular/material/select";
+import { AnswerService } from "./shared/services/answer.service";
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { MatSelectModule } from "@angular/material/select";
     MatSelectModule,
     MatTableModule,
     MatSortModule,
+    MatIconModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       {
@@ -56,10 +59,11 @@ import { MatSelectModule } from "@angular/material/select";
     MatFormFieldModule,
     MatTableModule,
     MatPaginatorModule,
+    MatIconModule,
     MatRippleModule,
     MatSelectModule,
   MatSortModule,],
-  providers: [AuthService, 
+  providers: [AuthService, AnswerService,
     {provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
       multi: true}],

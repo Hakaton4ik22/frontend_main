@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatPaginatorModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatIconModule,
     MatRippleModule,
     MatSortModule,
   ],  
@@ -47,6 +49,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule,
     MatFormFieldModule,
     MatTableModule,
+    MatIconModule,
     MatPaginatorModule,
     MatSortModule,
     MatRippleModule,],

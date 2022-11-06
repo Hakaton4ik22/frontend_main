@@ -6,6 +6,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 
 import { Table } from '../../shared/interfaces';
+import { AnswerService } from '../shared/services/answer.service';
 import { ApiService } from '../shared/services/api.service';
 import { AuthService } from '../shared/services/auth.service';
 import { TableService } from '../shared/services/table.service';
@@ -19,18 +20,19 @@ import { TableService } from '../shared/services/table.service';
   styleUrls: ['./analytics.component.scss']
 })
 export class AnalyticsComponent implements OnInit {
-  displayedColumns: string[] = ['napr', 'nastranapr', 'tnved_description', 'stoim', 'netto', 'kol', 'region_description', 'region_s_description', 'month', 'year'];
-  dataSource = new MatTableDataSource<Table>();
-  countrySource = new MatTableDataSource();
-  tnvedSource = new MatTableDataSource();
-   @ViewChild(MatSort) sort: MatSort;
+    displayedColumns: string[] = ['napr', 'nastranapr', 'tnved_description', 'stoim', 'netto', 'kol', 'region_description', 'region_s_description', 'month', 'year'];
+    dataSource = new MatTableDataSource<Table>();
+    countrySource = new MatTableDataSource();
+    tnvedSource = new MatTableDataSource();
+    @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
- title = 'tableAnatytics';
-  constructor(private tableservice: TableService,
+    title = 'tableAnatytics';
+    constructor(private tableservice: TableService,
+      private answer: AnswerService,
         private _api : ApiService,
-    private _auth: AuthService,
-    private router: Router,
-    public fb: FormBuilder,) { }
+        private _auth: AuthService,
+        private router: Router,
+        public fb: FormBuilder,) { }
     listAnalytics!: Table[];
 
     formReq: FormGroup
@@ -41,21 +43,24 @@ export class AnalyticsComponent implements OnInit {
 
     yearList: string[] = ['2019', '2020', '2021'];
 
-    countryList: any;
-    tnvedList: any;
-    countryEx: any;
-    tnvedEx: any;
-    
-  
+      countryList: any;
+      tnvedList: any;
+      countryEx: any;
+      tnvedEx: any;
+
   ngOnInit() {
     this.fetchTable();
-    this.fetchTnved();
-    this.fetchContry();
+    setTimeout(()=> {
+        this.fetchContry();
+        this.fetchTnved();
+    })
+
+
     this.formReq = this.fb.group({
-        naprs: new FormControl(),
-        years: new FormControl(),
-        countries: new FormControl(),
-        tnveds: new FormControl(),
+        naprsForm: new FormControl(),
+        yearsForm: new FormControl(),
+        countryForm: new FormControl(),
+        tnvedsForm: new FormControl('', Validators.required),
     });
       this.analyticForm = new FormGroup({
         nastranapr: new FormControl(),
@@ -103,16 +108,13 @@ export class AnalyticsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
-   submit() {
-    
-    if (this.analyticForm.invalid){
-      return
-    }
-
-    this.submitted = true
-    
-
+    submit(){
+    let b = {user_form: this.formReq.value}
+    this._api.postTypeRequest('delta', b).subscribe((response: any) => {
+      this.answer.answerRes =  response
+      this.router.navigate(['/office', 'dashboard'])
+    });
   }
+
 
 }
