@@ -19,8 +19,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   displayedColumns = [
-' Stoim20201ToStoim20191', 'Stoim20202ToStoim20192',
+  'Stoim20201ToStoim20191', 'Stoim20202ToStoim20192',
        'Stoim20203ToStoim20193', 'Stoim20204ToStoim20194',
        'Stoim20205ToStoim20195', 'Stoim20206ToStoim20196',
        'Stoim20207ToStoim20197', 'Stoim20208ToStoim20198',
@@ -55,7 +56,7 @@ export class DashboardComponent implements OnInit {
        'Kol202110ToKol202010', 'Kol202111ToKol202011',
        'Kol202112ToKol202012'
   ];
-  dataSource = this.answer.answerRes
+  dataSource = this.answer.answerRes;
 
   back() {
     this.router.navigate(['/office', 'analytics'])
