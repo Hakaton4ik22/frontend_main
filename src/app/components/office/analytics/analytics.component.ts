@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
@@ -21,40 +21,78 @@ import { TableService } from '../shared/services/table.service';
 export class AnalyticsComponent implements OnInit {
   displayedColumns: string[] = ['napr', 'nastranapr', 'tnved_description', 'stoim', 'netto', 'kol', 'region_description', 'region_s_description', 'month', 'year'];
   dataSource = new MatTableDataSource<Table>();
+  countrySource = new MatTableDataSource();
+  tnvedSource = new MatTableDataSource();
    @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
  title = 'tableAnatytics';
   constructor(private tableservice: TableService,
         private _api : ApiService,
     private _auth: AuthService,
-    private router: Router) { }
+    private router: Router,
+    public fb: FormBuilder,) { }
     listAnalytics!: Table[];
-  analyticForm: FormGroup;
-  submitted: boolean = false;
 
+    formReq: FormGroup
+    analyticForm: FormGroup;
+    submitted: boolean = false;
+
+    naprList: string[] = ['Экспорт', 'Импорт'];
+
+    yearList: string[] = ['2019', '2020', '2021'];
+
+    countryList: any;
+    tnvedList: any;
+    countryEx: any;
+    tnvedEx: any;
+    
+  
   ngOnInit() {
     this.fetchTable();
-     this.analyticForm = new FormGroup({
-      okved: new FormControl(null, [Validators.required]),
-      tnved: new FormControl(null, [Validators.required]),
-      period: new FormControl(null, [Validators.required]),
-      region: new FormControl(null, [Validators.required]),
+    this.fetchTnved();
+    this.fetchContry();
+    this.formReq = this.fb.group({
+        naprs: new FormControl(),
+        years: new FormControl(),
+        countries: new FormControl(),
+        tnveds: new FormControl(),
+    });
+      this.analyticForm = new FormGroup({
+        nastranapr: new FormControl(),
+        tnved_description: new FormControl(),
+        napr: new FormControl(),
+        year: new FormControl(),
     })
   }
-  //   ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
-  // }
+
+  
+  fetchTnved() {
+    this.tnvedEx = this.tableservice.getTnved().subscribe(data=> {
+      this.tnvedList = data
+      this.tnvedSource = new MatTableDataSource(this.tnvedList)
+    })
+  }
+
+  fetchContry() {
+    this.countryEx = this.tableservice.getCountry().subscribe(data=> {
+      this.countryList = data
+      this.countrySource = new MatTableDataSource(this.countryList)
+    })
+  }
+
   fetchTable() {
     this.tableservice.getTable().subscribe(data=> {
       this.listAnalytics = data
-
-
       this.dataSource = new MatTableDataSource(this.listAnalytics)
+     
+       
       setTimeout(()=>{
         this.dataSource.paginator = this.paginator;
    })
+
    this.dataSource.sort = this.sort;
     })
+
   }
 
   applyFilter(event: Event) {

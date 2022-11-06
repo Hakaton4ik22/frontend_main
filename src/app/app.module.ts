@@ -17,6 +17,7 @@ import { AnalyticsComponent } from './components/office/analytics/analytics.comp
 import { RouterModule } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -37,11 +38,13 @@ import { MatSortModule } from '@angular/material/sort';
     MatButtonModule,
     MatPaginatorModule,
     MatFormFieldModule,
+    MatSelectModule,
     MatRippleModule,
     MatSortModule,
   ],  
   exports: [RouterModule,
     MatButtonModule,
+    MatSelectModule,
     MatFormFieldModule,
     MatTableModule,
     MatPaginatorModule,

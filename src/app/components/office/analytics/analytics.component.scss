@@ -110,7 +110,7 @@ section.office {
         align-items: center;
         justify-content: space-between;
         margin-bottom: 16px;
-        input {
+        input, select, mat-select {
           width: 494px;
           background: #8099CB;
           border: 1px solid #2B3958;

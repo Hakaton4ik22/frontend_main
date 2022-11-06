@@ -18,6 +18,7 @@ import { InterceptorService } from "./shared/services/interceptor.service";
 import { AuthGuardService } from "./shared/services/auth-guard.service";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
+import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatSortModule } from "@angular/material/sort";
     MatFormFieldModule,
     MatRippleModule,
     MatPaginatorModule,
+    MatSelectModule,
     MatTableModule,
     MatSortModule,
     ReactiveFormsModule,
@@ -55,6 +57,7 @@ import { MatSortModule } from "@angular/material/sort";
     MatTableModule,
     MatPaginatorModule,
     MatRippleModule,
+    MatSelectModule,
   MatSortModule,],
   providers: [AuthService, 
     {provide: HTTP_INTERCEPTORS,

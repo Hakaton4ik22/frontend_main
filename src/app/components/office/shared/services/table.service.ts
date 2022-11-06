@@ -28,7 +28,20 @@ export class TableService {
   // }
   getTable(): Observable<any> {
 
-    return this.httpclient.get<Table>('http://188.72.108.212:8000/data')
+    return this.httpclient.get('http://188.72.108.212:8000/data')
+
+  }
+
+
+  getCountry(): Observable<any> {
+
+    return this.httpclient.get('http://188.72.108.212:8000/country')
+
+  }
+
+  getTnved(): Observable<any> {
+
+    return this.httpclient.get('http://188.72.108.212:8000/tnved_description')
 
   }
 }
