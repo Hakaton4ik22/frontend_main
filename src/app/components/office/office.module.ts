@@ -16,6 +16,8 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatRippleModule } from "@angular/material/core";
 import { InterceptorService } from "./shared/services/interceptor.service";
 import { AuthGuardService } from "./shared/services/auth-guard.service";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatSortModule } from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AuthGuardService } from "./shared/services/auth-guard.service";
     MatButtonModule,
     MatFormFieldModule,
     MatRippleModule,
+    MatPaginatorModule,
     MatTableModule,
+    MatSortModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       {
@@ -49,7 +53,9 @@ import { AuthGuardService } from "./shared/services/auth-guard.service";
     MatButtonModule,
     MatFormFieldModule,
     MatTableModule,
-    MatRippleModule,],
+    MatPaginatorModule,
+    MatRippleModule,
+  MatSortModule,],
   providers: [AuthService, 
     {provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,

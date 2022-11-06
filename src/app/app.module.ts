@@ -15,6 +15,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRippleModule } from '@angular/material/core';
 import { AnalyticsComponent } from './components/office/analytics/analytics.component';
 import { RouterModule } from '@angular/router';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -33,13 +35,17 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     MatTableModule,
     MatButtonModule,
+    MatPaginatorModule,
     MatFormFieldModule,
     MatRippleModule,
+    MatSortModule,
   ],  
   exports: [RouterModule,
     MatButtonModule,
     MatFormFieldModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
     MatRippleModule,],
   providers: [],
   bootstrap: [AppComponent]

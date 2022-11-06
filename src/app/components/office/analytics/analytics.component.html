@@ -112,6 +112,7 @@
 </section>
 
 <div class="table">
+  <h2>Аналитическая таблица</h2>
   <form mat-form-field appearance="standard" class="filter">
     <input
       matInput
@@ -121,55 +122,68 @@
     />
   </form>
 
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="napr">
-      <th mat-header-cell *matHeaderCellDef>Наименование (товара)</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Наименование (товара)
+      </th>
       <td mat-cell *matCellDef="let element">{{ element.napr }}</td>
     </ng-container>
     <ng-container matColumnDef="nastranapr">
-      <th mat-header-cell *matHeaderCellDef>Страна производитель</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Страна производитель
+      </th>
       <td mat-cell *matCellDef="let element">{{ element.nastranapr }}</td>
     </ng-container>
     <ng-container matColumnDef="tnved_description">
-      <th mat-header-cell *matHeaderCellDef>ТНВЭД</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ТНВЭД</th>
       <td mat-cell *matCellDef="let element">
         {{ element.tnved_description }}
       </td>
     </ng-container>
     <ng-container matColumnDef="stoim">
-      <th mat-header-cell *matHeaderCellDef>Стоимость</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Стоимость</th>
       <td mat-cell *matCellDef="let element">{{ element.stoim }}</td>
     </ng-container>
     <ng-container matColumnDef="netto">
-      <th mat-header-cell *matHeaderCellDef>Нетто</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Нетто</th>
       <td mat-cell *matCellDef="let element">{{ element.netto }}</td>
     </ng-container>
     <ng-container matColumnDef="kol">
-      <th mat-header-cell *matHeaderCellDef>Кол</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Кол</th>
       <td mat-cell *matCellDef="let element">{{ element.kol }}</td>
     </ng-container>
     <ng-container matColumnDef="region_description">
-      <th mat-header-cell *matHeaderCellDef>Регион</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Регион</th>
       <td mat-cell *matCellDef="let element">
         {{ element.region_description }}
       </td>
     </ng-container>
     <ng-container matColumnDef="region_s_description">
-      <th mat-header-cell *matHeaderCellDef>Регион(S)</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Регион(S)</th>
       <td mat-cell *matCellDef="let element">
         {{ element.region_s_description }}
       </td>
     </ng-container>
     <ng-container matColumnDef="month">
-      <th mat-header-cell *matHeaderCellDef>Месяц</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Месяц</th>
       <td mat-cell *matCellDef="let element">{{ element.month }}</td>
     </ng-container>
     <ng-container matColumnDef="year">
-      <th mat-header-cell *matHeaderCellDef>Год</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Год</th>
       <td mat-cell *matCellDef="let element">{{ element.year }}</td>
     </ng-container>
     <!-- Header and Row Declarations -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        Нет данных, соответствующих фильтру "{{ input.value }}"
+      </td>
+    </tr>
   </table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
 </div>
