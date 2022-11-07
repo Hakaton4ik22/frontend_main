@@ -4,5 +4,5 @@ import { Injectable } from "@angular/core";
 export class AnswerService {
 
   constructor( ) {}
-   answerRes: any[] = [];
+   answerRes: any
 }

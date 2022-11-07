@@ -23,6 +23,7 @@ export class AnalyticsComponent implements OnInit {
     displayedColumns: string[] = ['napr', 'nastranapr', 'tnved_description', 'stoim', 'netto', 'kol', 'region_description', 'region_s_description', 'month', 'year'];
     dataSource = new MatTableDataSource<Table>();
     countrySource = new MatTableDataSource();
+    dataSo = new MatTableDataSource();
     tnvedSource = new MatTableDataSource();
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -38,7 +39,9 @@ export class AnalyticsComponent implements OnInit {
     formReq: FormGroup
     analyticForm: FormGroup;
     submitted: boolean = false;
-
+      dataS: any;
+      countRes: any;
+      wait: any;
     naprList: string[] = ['Экспорт', 'Импорт'];
 
     yearList: string[] = ['2019', '2020', '2021'];
@@ -88,9 +91,9 @@ export class AnalyticsComponent implements OnInit {
   fetchTable() {
     this.tableservice.getTable().subscribe(data=> {
       this.listAnalytics = data
+      
       this.dataSource = new MatTableDataSource(this.listAnalytics)
-     
-       
+    
       setTimeout(()=>{
         this.dataSource.paginator = this.paginator;
    })
@@ -110,9 +113,11 @@ export class AnalyticsComponent implements OnInit {
   }
     submit(){
     let b = {user_form: this.formReq.value}
-    this._api.postTypeRequest('delta', b).subscribe((response: any) => {
-      this.answer.answerRes =  response
+    this._api.postTypeRequest('delta', b).subscribe((response) => {
+      this.answer.answerRes = response
+      console.log(this.answer.answerRes)
       this.router.navigate(['/office', 'dashboard'])
+      
     });
   }
 
