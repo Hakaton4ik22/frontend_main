@@ -92,6 +92,12 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
   </div>
-  <p>*nan - нет данных по данному периоду</p>
+  <p>
+    *nan - нет данных по данному периоду <br />
+    Показатели выраженны в процентах и определяют прирост объемов в предыдущему
+    году в разрезе месяцев. <br />P.S. отрицательные значения говорят о
+    сокращении объемов.
+  </p>
+
   <button type="submit" class="btn" (click)="back()">Назад</button>
 </section>

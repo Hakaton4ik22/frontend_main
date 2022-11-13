@@ -45,6 +45,7 @@ export class AnalyticsComponent implements OnInit {
     naprList: string[] = ['Экспорт', 'Импорт'];
       resList: string[] = ['Динамика показателей', 'Результат аналитики'];
     yearList: string[] = ['Стоимость', 'Вес', 'Количество'];
+    regionsList: string[] = ['РФ', 'Москва', 'Московская область', 'СПБ', 'РФ без Московской области'];
 
       countryList: any;
       tnvedList: any;
@@ -65,6 +66,7 @@ export class AnalyticsComponent implements OnInit {
         countryForm: new FormControl(),
         tnvedsForm: new FormControl('', Validators.required),
         resForm: new FormControl('', Validators.required),
+        regionForm: new FormControl('', Validators.required),
     });
       this.analyticForm = new FormGroup({
         nastranapr: new FormControl(),

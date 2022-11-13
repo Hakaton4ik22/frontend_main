@@ -25,9 +25,7 @@ export class DashboardComponent implements OnInit {
     dataSt = this.answer.answerRes;
     displayedColumns = [
 'stoim20211Tostoim20201',
-
 'stoim20212Tostoim20202',
-
 'stoim20213Tostoim20203',
 'stoim20214Tostoim20204',
 'stoim20215Tostoim20205',

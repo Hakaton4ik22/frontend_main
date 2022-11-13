@@ -84,6 +84,14 @@
             }}</mat-option>
           </mat-select>
         </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Регион</mat-label>
+          <mat-select formControlName="regionForm">
+            <mat-option *ngFor="let regionF of regionsList" [value]="regionF">{{
+              regionF
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <button type="submit" class="btn" [disabled]="formReq.invalid">
           Сформировать отчет
         </button>
