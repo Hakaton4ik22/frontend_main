@@ -26,10 +26,18 @@ export class DashboardComponent implements OnInit {
     displayedColumns = [
 'stoim20211Tostoim20201',
 
-'stoim20211Tostoim20201',
+'stoim20212Tostoim20202',
 
 'stoim20213Tostoim20203',
-'stoim20214Tostoim20204'
+'stoim20214Tostoim20204',
+'stoim20215Tostoim20205',
+'stoim20216Tostoim20206',
+'stoim20217Tostoim20207',
+'stoim20218Tostoim20208',
+'stoim20219Tostoim20209',
+'stoim202110Tostoim202010',
+'stoim202111Tostoim202011',
+'stoim202112Tostoim202012'
 
   ];
   

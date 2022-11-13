@@ -60,7 +60,8 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <mat-label>Год</mat-label>
+          <mat-label>Показатель динамики</mat-label>
+          <!-- year - показатель -->
           <mat-select formControlName="yearsForm">
             <mat-option *ngFor="let yearF of yearList" [value]="yearF">{{
               yearF
@@ -69,9 +70,17 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>ТН ВЭД</mat-label>
-          <mat-select formControlName="tnvedsForm">
+          <mat-select formControlName="tnvedsForm" multiple>
             <mat-option *ngFor="let tnvedF of tnvedList" [value]="tnvedF">{{
               tnvedF
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Выбор отчета</mat-label>
+          <mat-select formControlName="resForm">
+            <mat-option *ngFor="let resF of resList" [value]="resF">{{
+              resF
             }}</mat-option>
           </mat-select>
         </mat-form-field>

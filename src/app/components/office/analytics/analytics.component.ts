@@ -43,8 +43,8 @@ export class AnalyticsComponent implements OnInit {
       countRes: any;
       wait: any;
     naprList: string[] = ['Экспорт', 'Импорт'];
-
-    yearList: string[] = ['2019', '2020', '2021'];
+      resList: string[] = ['Динамика показателей', 'Результат аналитики'];
+    yearList: string[] = ['Стоимость', 'Вес', 'Количество'];
 
       countryList: any;
       tnvedList: any;
@@ -64,6 +64,7 @@ export class AnalyticsComponent implements OnInit {
         yearsForm: new FormControl(),
         countryForm: new FormControl(),
         tnvedsForm: new FormControl('', Validators.required),
+        resForm: new FormControl('', Validators.required),
     });
       this.analyticForm = new FormGroup({
         nastranapr: new FormControl(),
@@ -113,6 +114,7 @@ export class AnalyticsComponent implements OnInit {
   }
     submit(){
     let b = {user_form: this.formReq.value}
+    console.log(b)
     this._api.postTypeRequest('delta', b).subscribe((response) => {
       this.answer.answerRes = response
       console.log(this.answer.answerRes)
