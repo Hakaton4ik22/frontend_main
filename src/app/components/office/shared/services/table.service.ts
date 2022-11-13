@@ -14,8 +14,7 @@ export class TableService {
   constructor(private httpclient: HttpClient) {
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Content-type': 'application/json,',
-        'X-CSCAPI-KEY': ''
+        'Content-type': 'application/json,'
       })
     }
   }
