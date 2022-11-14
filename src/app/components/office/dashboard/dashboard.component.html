@@ -6,7 +6,12 @@
   <div class="example-container mat-elevation-z8" tabindex="0">
     <table mat-table [dataSource]="dataSt">
       <!-- Name Column -->
-
+      <ng-container matColumnDef="tnved">
+        <th mat-header-cell *matHeaderCellDef>ТН ВЭД</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.tnved }}
+        </td>
+      </ng-container>
       <ng-container matColumnDef="stoim20211Tostoim20201">
         <th mat-header-cell *matHeaderCellDef>Январь</th>
         <td mat-cell *matCellDef="let element">
@@ -79,7 +84,6 @@
           {{ element.stoim202112Tostoim202012 }}
         </td>
       </ng-container>
-
       <ng-container matColumnDef="star">
         <th mat-header-cell *matHeaderCellDef aria-label="row actions">
           &nbsp;

@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
   waiter: boolean = false
     dataSt = this.answer.answerRes;
     displayedColumns = [
+'tnved',
 'stoim20211Tostoim20201',
 'stoim20212Tostoim20202',
 'stoim20213Tostoim20203',
