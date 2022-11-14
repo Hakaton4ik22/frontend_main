@@ -34,18 +34,18 @@ export class AnalyticsComponent implements OnInit {
         private _auth: AuthService,
         private router: Router,
         public fb: FormBuilder,) { }
-    listAnalytics!: Table[];
-
-    formReq: FormGroup
-    analyticForm: FormGroup;
-    submitted: boolean = false;
+      listAnalytics!: Table[];
+      load: boolean = false;
+      formReq: FormGroup
+      analyticForm: FormGroup;
+      submitted: boolean = false;
       dataS: any;
       countRes: any;
       wait: any;
-    naprList: string[] = ['Экспорт', 'Импорт'];
+      naprList: string[] = ['Экспорт', 'Импорт'];
       resList: string[] = ['Динамика показателей', 'Результат аналитики'];
-    yearList: string[] = ['Стоимость', 'Вес', 'Количество'];
-    regionsList: string[] = ['РФ', 'Москва', 'Московская область', 'СПБ', 'РФ без Московской области'];
+      yearList: string[] = ['Стоимость', 'Вес', 'Количество'];
+      regionsList: string[] = ['РФ', 'Москва', 'Московская область', 'СПБ', 'РФ без Московской области'];
 
       countryList: any;
       tnvedList: any;
@@ -116,7 +116,6 @@ export class AnalyticsComponent implements OnInit {
   }
     submit(){
     let b = {user_form: this.formReq.value}
-    console.log(b)
     this._api.postTypeRequest('delta', b).subscribe((response) => {
       this.answer.answerRes = response
       console.log(this.answer.answerRes)
@@ -125,5 +124,10 @@ export class AnalyticsComponent implements OnInit {
     });
   }
 
-
+  loader (){
+    setTimeout(() => {
+      this.load = !this.load
+    }, 500)
+    
+  }
 }

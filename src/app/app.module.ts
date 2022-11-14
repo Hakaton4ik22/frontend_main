@@ -19,6 +19,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { LoaderComponent } from './components/shared/components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    AnalyticsComponent
+    AnalyticsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
