@@ -23,6 +23,7 @@ import { LoaderComponent } from './components/shared/components/loader/loader.co
 import { ResourcesComponent } from './components/resources/resources.component';
 import { InfoComponent } from './components/info/info.component';
 import { SupportComponent } from './components/support/support.component';
+import { RecommendationsComponent } from './components/office/recommendations/recommendations.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SupportComponent } from './components/support/support.component';
     FooterComponent,
     AnalyticsComponent,
     LoaderComponent,
+    RecommendationsComponent
   ],
   imports: [
     BrowserModule,
