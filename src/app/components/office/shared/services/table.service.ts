@@ -25,6 +25,12 @@ export class TableService {
 
   }
 
+   getRecTable(): Observable<any> {
+
+    return this.httpclient.get('http://188.72.108.212:8000/get_recomendation')
+
+  }
+
 
   getCountry(): Observable<any> {
 

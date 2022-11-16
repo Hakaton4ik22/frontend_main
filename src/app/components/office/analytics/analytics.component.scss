@@ -129,6 +129,12 @@ section.office {
         border-radius: 5px;
         cursor: pointer;
       }
+      .btn_get{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 20px;
+      }
     }
   }
 }

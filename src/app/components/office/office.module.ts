@@ -21,11 +21,13 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { MatSelectModule } from "@angular/material/select";
 import { AnswerService } from "./shared/services/answer.service";
+import { RecommendationsComponent } from "./recommendations/recommendations.component";
 
 @NgModule({
   declarations: [
     OfficeLayoutComponent,
     LoginComponent,
+    RecommendationsComponent,
     DashboardComponent,
   ],
   imports: [
@@ -50,6 +52,7 @@ import { AnswerService } from "./shared/services/answer.service";
           {path: 'dashboard', component: DashboardComponent,
     canActivate:[AuthGuardService] },
           {path: 'analytics', component: AnalyticsComponent},
+          {path: 'recommendations', component: RecommendationsComponent},
         ]
       }
     ])
