@@ -1,3 +1,15 @@
+<section class="wrapper choise">
+  <h2>Выбранные фильтры:</h2>
+  <ul>
+    <li><span>Страна: </span> {{ answerTable.countryForm }}</li>
+    <li><span>Направление: </span> {{ answerTable.naprsForm }}</li>
+    <li><span>Показатель динамики: </span> {{ answerTable.yearsForm }}</li>
+    <li><span>ТН ВЭД: </span> {{ answerTable.tnvedsForm }}</li>
+    <li><span>Выбор отчета: </span> {{ answerTable.resForm }}</li>
+    <li><span>Регион: </span> {{ answerTable.regionForm }}</li>
+  </ul>
+</section>
+
 <section class="wrapper">
   <h2>Динамика показателя в сравнении с предыдущим годом того же месяца:</h2>
   <button mat-raised-button color="accent" (click)="refresh()">
@@ -102,6 +114,5 @@
     году в разрезе месяцев. <br />P.S. отрицательные значения говорят о
     сокращении объемов.
   </p>
-
   <button type="submit" class="btn" (click)="back()">Назад</button>
 </section>

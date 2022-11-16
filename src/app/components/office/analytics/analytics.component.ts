@@ -24,6 +24,7 @@ export class AnalyticsComponent implements OnInit {
     dataSource = new MatTableDataSource<Table>();
     countrySource = new MatTableDataSource();
     dataSo = new MatTableDataSource();
+    
     tnvedSource = new MatTableDataSource();
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -116,9 +117,9 @@ export class AnalyticsComponent implements OnInit {
   }
     submit(){
     let b = {user_form: this.formReq.value}
+    this.answer.saveAnalytics = this.formReq.value
     this._api.postTypeRequest('delta', b).subscribe((response) => {
       this.answer.answerRes = response
-      console.log(this.answer.answerRes)
       this.router.navigate(['/office', 'dashboard'])
       
     });

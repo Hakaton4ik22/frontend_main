@@ -22,6 +22,7 @@ import { MatSortModule } from "@angular/material/sort";
 import { MatSelectModule } from "@angular/material/select";
 import { AnswerService } from "./shared/services/answer.service";
 import { RecommendationsComponent } from "./recommendations/recommendations.component";
+import { LoaderComponent } from "../shared/components/loader/loader.component";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RecommendationsComponent } from "./recommendations/recommendations.comp
     LoginComponent,
     RecommendationsComponent,
     DashboardComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,

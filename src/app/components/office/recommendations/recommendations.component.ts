@@ -21,13 +21,15 @@ export class RecommendationsComponent implements OnInit {
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
     title = 'tableAnatytics';
-    constructor(private tableservice: TableService) { }
-      listAnalytics: any;
-
+    constructor(private router: Router, private tableservice: TableService) { }
+    listAnalytics: any;
+    waiter: boolean = false;
 
   ngOnInit() {
     this.fetchTable();
-
+    setTimeout(()=> {
+      this.waiter = true;
+    }, 5500)
 
   }
 
@@ -54,4 +56,8 @@ export class RecommendationsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+    back() {
+    this.router.navigate(['/office', 'analytics'])
+  };
 }
