@@ -36,3 +36,15 @@
 td.mat-cell {
   padding-right: 20px;
 }
+
+
+.wrapper-buttons {
+  display: flex;
+  justify-content: space-between;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+  }
+}

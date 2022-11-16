@@ -131,6 +131,7 @@ section.office {
           justify-content: center;
           align-items: center;
           margin-top: 20px;
+          border: 1px solid black;
       }
     }
   }
@@ -152,4 +153,8 @@ form {
   color: red;
   font-size: 23px;
   margin-bottom: 12px;
+}
+
+td.mat-cell {
+  padding-right: 20px;
 }

@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   waiter: boolean = false
     dataSt = this.answer.answerRes;
     answerTable = this.answer.saveAnalytics;
-
+  link = 'http://188.72.108.212:8000/download/'+this.answerTable.resForm+'.xlsx'
     displayedColumns = [
       'tnved',
       'stoim20211Tostoim20201',
